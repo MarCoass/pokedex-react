@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;900&family=Inconsolata:wght@500;700&display=swap");
+
 :root {
   --bg-steel: #a8a8c0;
   --bg-water: #3899f8;
@@ -23,3 +25,6 @@
   --bg-flying: #98a8f0;
 }
 
+.pokemonCard:hover {
+  background-color: var(--bg-bug);
+}

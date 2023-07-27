@@ -13,7 +13,7 @@ function NavBar() {
   
   return (
     <nav className="">
-      <div className="max-w-6xl mx-auto border bg-slate-50 rounded">
+      <div className="max-w-6xl mx-auto border bg-slate-200 rounded">
         <div className="flex justify-between">
           
             {/*logo */}

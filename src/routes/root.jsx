@@ -4,10 +4,10 @@ import NavBar from "../navbar/navbar";
 export default function Root() {
   return (
     <>
-      <div className="px-4 bg-red-400 h-screen">
+      <div className="lg:px-4 bg-slate-50 h-screen">
         <NavBar></NavBar>
 
-        <div id="contenido" className="px-8 h-full" >
+        <div id="contenido" className="min-h-min lg:h-4/5 mt-4" >
           <Outlet />
         </div>
       </div>

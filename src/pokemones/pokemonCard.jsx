@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function PokemonCard(props) {
   const { urlPokemon } = props;
@@ -28,8 +29,11 @@ export default function PokemonCard(props) {
               style={{ width: "100%", height: "100%" }}
             />
           </div>
-
-          <div className="w-full mt-1 text-center" style={{fontFamily:"Archivo", fontWeight:"600"}}>
+          
+          <div
+            className="w-full mt-1 text-center"
+            style={{ fontFamily: "Archivo", fontWeight: "600" }}
+          >
             {pokemon.name.toUpperCase()}
           </div>
           <div className="flex">
@@ -40,13 +44,15 @@ export default function PokemonCard(props) {
                 style={{
                   backgroundColor: "var(--bg-" + tipo.type.name + ")",
                   fontFamily: "Inconsolata",
-                  fontWeight: "600"
+                  fontWeight: "600",
                 }}
               >
                 {tipo.type.name}
               </p>
             ))}
+
           </div>
+          <Link to={'/pokemon/'+pokemon.name}>Ver</Link>
         </div>
       ) : (
         <div className="rounded-full h-36 w-36"></div>

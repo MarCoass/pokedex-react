@@ -8,6 +8,7 @@ import Root from "./routes/root";
 import ErrorPage from "./routes/error-page"
 import Random from "./routes/random";
 import Todos from "./routes/todos";
+import Pokemon from "./routes/pokemon";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/todos",
         element: <Todos />,
+      },
+      {
+        path: "/pokemon/:nombre",
+        element: <Pokemon />,
       },
     ],
   }

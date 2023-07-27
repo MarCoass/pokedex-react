@@ -4,7 +4,7 @@ import PokemonCard from "./pokemonCard";
 
 export default function PokemonList() {
   const [pokemons, setPokemons] = useState([]);
-  const [pokemonsPorPagina, setPokemonsPorPagina] = useState(12);
+  const [pokemonsPorPagina, setPokemonsPorPagina] = useState(18);
   const [paginaActual, setPaginaActual] = useState(1);
   const [totalPaginas, setTotalPaginas] = useState(0);
 
@@ -44,7 +44,7 @@ export default function PokemonList() {
 
   return (
     <div className="flex flex-col justify-center items-center py-4">
-      <div className="grid grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
         {pokemonsMostrados.map((pokemon) => (
           <div className="" key={pokemon.name}>
                     <PokemonCard urlPokemon={pokemon.url}/>

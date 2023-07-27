@@ -19,10 +19,10 @@ export default function PokemonCard(props) {
 
   // Verificación para mostrar el nombre del Pokémon solo si "pokemon" no es nulo
   return (
-    <div className="bg-gradient-to-r from-red-500 from-10% to-red-700 to-90% m-2 p-2 hover:bg-gradient-to-l rounded-md shadow-lg shadow-indigo-500/50">
+    <div className="bg-gradient-to-r from-red-400 from-10% to-red-600 to-90% m-2 p-2 hover:bg-gradient-to-l rounded-md shadow-lg shadow-red-500/50">
       {pokemon ? (
         <div className="flex flex-col items-center justify-center">
-          <div className="rounded h-36 bg-gradient-to-r from-slate-400 from-10% to-slate-600 to-90% ">
+          <div className="rounded h-36 bg-gradient-to-r from-slate-200 from-10% to-slate-400 to-90% ">
             <img
               src={pokemon.sprites.other["official-artwork"].front_default}
               alt=""

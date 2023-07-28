@@ -3,7 +3,7 @@ import NavBar from "../navbar/navbar";
 
 export default function Root() {
   return (
-    <>
+    
       <div className="lg:px-4 bg-slate-50 h-screen">
         <NavBar></NavBar>
 
@@ -11,6 +11,6 @@ export default function Root() {
           <Outlet />
         </div>
       </div>
-    </>
+    
   );
 }

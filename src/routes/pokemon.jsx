@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { fetchPokemon } from "../services/api";
+
 
 export default function Pokemon() {
   let { nombre } = useParams();
-  let urlPokemon = "https://pokeapi.co/api/v2/pokemon/" + nombre;
   const [pokemon, setPokemon] = useState(null); // Cambiamos el estado inicial a null
 
   //Funcion asincrona que consume la API
   const buscarPokemon = async () => {
-    const data = await fetch(urlPokemon);
-    const pokemon = await data.json();
+    const pokemon = await fetchPokemon(nombre);
     setPokemon(pokemon);
-    // console.log(pokemon);
   };
 
   useEffect(() => {
@@ -19,19 +18,19 @@ export default function Pokemon() {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto my-2 bg-slate-50 rounded-md">
+    <div className="max-w-6xl mx-auto my-2 bg-slate-200 rounded-md min-h-full">
       {pokemon ? (
         <div className="flex flex-col md:flex-row justify-center  md:justify-between">
           <div className="m-auto">
             <img
               src={pokemon.sprites.other["official-artwork"].front_default}
               alt=""
-              className=""
+              className="h-96"
             />
           </div>
 
-          <div className="md:w-2/3 bg-red-600 rounded-t-3xl rounded-bl-none md:rounded-tr-none md:rounded-l-3xl p-3 grid justify-center">
-            <p>{pokemon.name}</p>
+          <div className="md:w-2/3 text-white bg-red-600 rounded-t-3xl rounded-bl-none md:rounded-tr-none md:rounded-l-3xl p-3 grid justify-center">
+            <p className="text-4xl  m-2"> {pokemon.name.toUpperCase()}</p>
             <div>
               <span>Tipo</span>
               <div className="flex">

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Paginacion from "./paginacion";
 import PokemonCard from "./pokemonCard";
+import { fetchPokemones } from "../services/api";
 
 export default function PokemonList() {
   const [pokemons, setPokemons] = useState([]);
@@ -10,10 +11,8 @@ export default function PokemonList() {
 
   //Funcion asincrona que consume la API
   const pokemonsList = async () => {
-    const data = await fetch(
-      "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
-    );
-    const respuesta = await data.json();
+    const respuesta = await fetchPokemones();//llamada a la funcion en api.js
+    //const respuesta = await data.json();
     const pokemons = respuesta.results;
     /*console.log(pokemons)*/
     setPokemons(pokemons);
@@ -43,11 +42,11 @@ export default function PokemonList() {
 
 
   return (
-    <div className="flex flex-col justify-center items-center py-4">
+    <div className="flex flex-col justify-items-center items-center content-evenly gap-4">
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
         {pokemonsMostrados.map((pokemon) => (
           <div className="" key={pokemon.name}>
-                    <PokemonCard urlPokemon={pokemon.url}/>
+                    <PokemonCard nombre={pokemon.name}/>
           </div>
 
         ))}

@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { fetchPokemon } from "../services/api";
 
 export default function PokemonCard(props) {
-  const { urlPokemon } = props;
+  const { nombre } = props;
   const [pokemon, setPokemon] = useState(null); // Cambiamos el estado inicial a null
 
-  //Funcion asincrona que consume la API
   const buscarPokemon = async () => {
-    const data = await fetch(urlPokemon);
-    const pokemon = await data.json();
+    const pokemon = await fetchPokemon(nombre);
     setPokemon(pokemon);
-    //console.log(pokemon.sprites.other["official-artwork"].front_default)
   };
 
   useEffect(() => {
